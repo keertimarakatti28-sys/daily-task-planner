@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple daily task planner by Glowlogics">
+  <title>Daily Task Planner | Glowlogics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="planner-shell">
+    <div class="container planner-container">
+      <header class="planner-header">
+        <a class="brand" href="index.html" aria-label="Glowlogics home">
+          <span class="brand-mark"><i class="bi bi-lightning-charge-fill"></i></span>
+          <span>glowlogics</span>
+        </a>
+        <div class="date-block">
+          <span class="date-label">Today</span>
+          <time id="current-date" datetime=""></time>
+        </div>
+      </header>
+
+      <section class="intro-row" aria-labelledby="page-title">
+        <div>
+          <p class="kicker">Daily focus / <span id="task-count-label">0 tasks</span></p>
+          <h1 id="page-title">Make today <em>count.</em></h1>
+          <p class="intro-copy">A clear little space for the things that move your day forward.</p>
+        </div>
+        <div class="progress-orb" aria-label="Task completion progress">
+          <span id="progress-value">0%</span>
+          <small>complete</small>
+        </div>
+      </section>
+
+      <section class="planner-panel" aria-label="Task planner">
+        <form id="task-form" class="task-form">
+          <label class="visually-hidden" for="task-input">New task</label>
+          <i class="bi bi-plus-lg input-icon" aria-hidden="true"></i>
+          <input id="task-input" class="form-control" type="text" maxlength="120" placeholder="What needs your attention?" autocomplete="off">
+          <button class="btn add-button" type="submit"><span>Add task</span><i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+        </form>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+
+        <div class="toolbar">
+          <div class="filter-tabs" role="group" aria-label="Filter tasks">
+            <button class="filter-button active" type="button" data-filter="all">All <span id="all-count">0</span></button>
+            <button class="filter-button" type="button" data-filter="pending">Pending <span id="pending-count">0</span></button>
+            <button class="filter-button" type="button" data-filter="completed">Completed <span id="completed-count">0</span></button>
+          </div>
+          <button id="clear-completed" class="clear-button" type="button">Clear completed</button>
+        </div>
+
+        <div id="task-list" class="task-list" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon"><i class="bi bi-sun" aria-hidden="true"></i></div>
+          <h2>Your list is clear</h2>
+          <p>Add your first task above and get the day moving.</p>
+        </div>
+      </section>
+
+      <footer class="planner-footer">
+        <span><i class="bi bi-shield-check" aria-hidden="true"></i> Saved locally in your browser</span>
+        <span>Glowlogics <span class="footer-dot">·</span> built for focus</span>
+      </footer>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
